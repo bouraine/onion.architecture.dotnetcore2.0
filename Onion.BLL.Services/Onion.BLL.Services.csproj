@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Clic.BLL.Services</AssemblyName>
+    <RootNamespace>Clic.BLL.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Onion.BLL.IServices\Onion.BLL.IServices.csproj" />
+    <ProjectReference Include="..\Onion.DAL.Entities\Onion.DAL.Entities.csproj" />
+    <ProjectReference Include="..\Onion.DAL.Persistance\Onion.DAL.Persistance.csproj" />
+  </ItemGroup>
+
+</Project>
