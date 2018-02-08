@@ -1,3 +1,6 @@
+# Foreword
+Thanks for every member of C.L.I.C team (LGM Group)
+
 # Onion.architecture.dotnetcore2.0
 Onion architecture implementation with dotnet core 2.X
 
