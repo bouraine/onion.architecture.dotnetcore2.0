@@ -27,6 +27,31 @@ Onion Architecture sets a clear dependency rule between layers, making it a more
 
 ![Onion architecture](http://blog.thedigitalgroup.com/chetanv/wp-content/uploads/sites/23/2015/07/image_thumb1.png)
 
+# Onion.DAL.Entities
+- BaseEntity
+- Domain Entities
+
+# Onion.DAL.Persistance
+- Datebase Context, 
+- DBSets, 
+- EntityConfiguration (Fluent API)
+- EF Migrations
+- Eventual Seeds
+
+# Onion.BLL.IService
+- Business layer service interfaces
+
+# Onion.BLL.Service
+- Business layer service implementations
+
+# Onion.Web.API
+- ASPNET Core WebApi
+- View Models / View Model Builders
+- JWT Bearer Authentication (Startup.cs)
+- IOC (inversion of control)
+
+
+
 
 
 
