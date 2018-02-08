@@ -14,7 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Onion.Web.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("token")]
     public class IdentityController : Controller
     {
         private IConfiguration _Configuration { get; }
