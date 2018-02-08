@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Onion.BLL.IServices.Books;
+using Onion.Web.API.Builders;
 
 namespace Onion.Web.API.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        private IBookService _ZepService;
+        private IBookService _BookService;
 
-        public ValuesController(IBookService ZepService)
+        public ValuesController(IBookService BookService)
         {
-            _ZepService = ZepService;
+            _BookService = BookService;
         }
 
         // GET api/values
@@ -22,7 +23,10 @@ namespace Onion.Web.API.Controllers
         public IEnumerable<string> Get()
         {
             var user = User;
-            return new string[] { "ok" };
+            var book = _BookService.GetById(1);
+            var bvm = BookViewModelsBuilder.GetBookViewModel(book);
+            
+            return new string[] { "ok"};
         }
 
         // GET api/values/5

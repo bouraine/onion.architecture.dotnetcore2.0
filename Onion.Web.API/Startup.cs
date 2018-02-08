@@ -22,11 +22,16 @@ namespace Onion.Web.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Hide
             // When used with ASP.net core, add these lines to Startup.cs
-            //var connectionString = Configuration.GetConnectionString("PHENIXContext");
+            //var connectionString = Configuration.GetConnectionString("OnionContext");
             //services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
-            var SigningKey = "jKQwDwKcutNWEndCiS1hM6GF7cdkr2T-exG_FuY41yg";
-            //Configuration["SigningKey"]
+            #endregion
+
+            string Issuer = Configuration.GetSection("AuthCredentials").GetSection("Issuer").Value;
+            string Audience = Configuration.GetSection("AuthCredentials").GetSection("Audience").Value;
+            string SigningKey = Configuration.GetSection("AuthCredentials").GetSection("SigningKey").Value;
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(jwtBearerOptions =>
             {
@@ -36,8 +41,8 @@ namespace Onion.Web.API
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "PHENIX_NG",//Configuration["Issuer"],
-                    ValidAudience = "60f783b666a94ec79a70b268e9a256df",//Configuration["Audience"],
+                    ValidIssuer = Issuer,
+                    ValidAudience =Audience,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SigningKey))
                 };
             });
@@ -55,6 +60,7 @@ namespace Onion.Web.API
                 app.UseDeveloperExceptionPage();
             }
             app.UseAuthentication();
+            //don't use on production env
             app.UseCors(builder =>
                 builder.AllowAnyOrigin()
             );

@@ -9,19 +9,29 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace PHENIX.Web.API.Controllers
+namespace Onion.Web.API.Controllers
 {
     [Route("api/[controller]")]
     public class IdentityController : Controller
     {
+        private IConfiguration _Configuration { get; }
+
+        public IdentityController(IConfiguration configuration)
+        {
+            _Configuration = configuration;
+        }
 
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Post([FromBody]LoginViewModel loginViewModel)
         {
-            var SigningKey = "jKQwDwKcutNWEndCiS1hM6GF7cdkr2T-exG_FuY41yg";
+            string Issuer = _Configuration.GetSection("AuthCredentials").GetSection("Issuer").Value;
+            string Audience = _Configuration.GetSection("AuthCredentials").GetSection("Audience").Value;
+            string SigningKey = _Configuration.GetSection("AuthCredentials").GetSection("SigningKey").Value;
+
             if (ModelState.IsValid)
             {
                 //call identity service
@@ -40,8 +50,8 @@ namespace PHENIX.Web.API.Controllers
                 
                 var token = new JwtSecurityToken
                 (
-                    issuer: "PHENIX_NG",
-                    audience: "60f783b666a94ec79a70b268e9a256df",
+                    issuer: Issuer,
+                    audience: Audience,
                     claims: claims,
                     expires: DateTime.UtcNow.AddDays(60),
                     notBefore: DateTime.UtcNow,

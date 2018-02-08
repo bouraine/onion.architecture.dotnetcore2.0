@@ -15,7 +15,11 @@ namespace Onion.BLL.Services.Books
         {
             using (AppDbContext context = new AppDbContext())
             {
-                var book = context.Book.Include(t => t.BookCategories.Select(bc => bc.Category)).FirstOrDefault();
+                var book = context.Book
+                    .Include(b => b.BookCategories)
+                        .ThenInclude(bc => bc.Category)
+                    .Where(b => b.Id == Id)
+                    .FirstOrDefault();
                 return book;
             }
         }

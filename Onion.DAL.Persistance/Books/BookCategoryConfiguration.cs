@@ -11,7 +11,9 @@ namespace Onion.DAL.Entities.Books
     {
         void IEntityTypeConfiguration<BookCategory>.Configure(EntityTypeBuilder<BookCategory> builder)
         {
-            builder.HasKey(bc => new { bc.BookId, bc.CategoryId});
+
+            //builder.HasKey(bc => new { bc.BookId, bc.CategoryId});
+            builder.HasKey(bc => bc.Id);
 
             //BookCategory is the join entity between Book and Category used to represent many to many relationship
             builder.HasOne(bc => bc.Book)

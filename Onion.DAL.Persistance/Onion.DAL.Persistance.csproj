@@ -5,7 +5,7 @@
     <AssemblyName>Onion.DAL.Persistance</AssemblyName>
     <RootNamespace>Onion.DAL.Persistance</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+	  <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,10 +16,6 @@
   
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

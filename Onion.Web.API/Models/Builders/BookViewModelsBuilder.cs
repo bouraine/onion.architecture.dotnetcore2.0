@@ -9,7 +9,7 @@ namespace Onion.Web.API.Builders
 {
     public static class BookViewModelsBuilder
     {
-        public static BookViewModel GetZepViewModel(Book book)
+        public static BookViewModel GetBookViewModel(Book book)
         {
             BookViewModel bvm = new BookViewModel
             {
@@ -19,11 +19,11 @@ namespace Onion.Web.API.Builders
             return bvm;
         }
 
-        public static List<BookViewModel> GetListZepViewModel(List<Book> books)
+        public static List<BookViewModel> GetListBookViewModel(List<Book> books)
         {
             List<BookViewModel> booksVM = new List<BookViewModel>();
             books.ForEach(t => {
-                booksVM.Add(BookViewModelsBuilder.GetZepViewModel(t));
+                booksVM.Add(BookViewModelsBuilder.GetBookViewModel(t));
             });
             return booksVM;
         }

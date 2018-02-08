@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Onion.DAL.Entities.Books
 {
-    public class BookCategory
+    public class BookCategory : EntityBase
     {
         public int BookId { get; set; }
         public Book Book { get; set; }
