@@ -7,7 +7,7 @@ using Onion.Web.API.Builders;
 
 namespace Onion.Web.API.Controllers
 {
-    [Route("token")]
+    [Route("api/[Controller]")]
     public class ValuesController : Controller
     {
         private IBookService _BookService;
