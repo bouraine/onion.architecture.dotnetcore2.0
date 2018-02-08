@@ -20,7 +20,7 @@ After projects renaming using Full Name Project extension, you have to change ob
     - Be sure "Onion.DAL.Persistance" is selected as default projet
     - You can find some help here for EF Core .NET Command-line : https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
     - Change Application Url and launchUrl in Properties/launchSettings.json file : 
-    []
+    ![launchSettings.json](https://github.com/bouraine/onion.architecture.dotnetcore2.0/blob/master/launchSettings.JPG)
 
 # Sammary
 
@@ -51,6 +51,20 @@ Onion Architecture sets a clear dependency rule between layers, making it a more
 - View Models / View Model Builders
 - JWT Bearer Authentication (Startup.cs)
 - IOC (inversion of control)
+
+# Test authentication with Postman
+
+1- Authentication with login and password : 
+- Select raw option and set content-Type to JSON(application/json)
+- insert json value (login/password/clientID)
+
+![login](https://github.com/bouraine/onion.architecture.dotnetcore2.0/blob/master/authentication.JPG)
+
+2- Call the api with the above generated token : 
+- Add Authorisation header key
+- Type Bearer then space then the above generated token
+
+![api_call](https://github.com/bouraine/onion.architecture.dotnetcore2.0/blob/master/API_Call.JPG)
 
 
 
