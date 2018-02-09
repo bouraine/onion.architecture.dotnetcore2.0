@@ -22,8 +22,8 @@ After projects renaming using Full Name Project extension, you have to change ob
 - Run this entity framework command on PM console to create database : Update-Database 
     - Be sure "Onion.DAL.Persistance" is selected as default projet
     - You can find some help here for EF Core .NET Command-line : https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
-    - Change Application Url and launchUrl in Properties/launchSettings.json file : 
-    ![launchSettings.json](https://github.com/bouraine/onion.architecture.dotnetcore2.0/blob/master/launchSettings.JPG)
+- Change Application Url and launchUrl in Properties/launchSettings.json file : 
+  ![launchSettings.json](https://github.com/bouraine/onion.architecture.dotnetcore2.0/blob/master/launchSettings.JPG)
 
 # Sammary
 
