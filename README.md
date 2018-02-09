@@ -37,8 +37,8 @@ Onion Architecture sets a clear dependency rule between layers, making it a more
 - Domain Entities
 
 # Onion.DAL.Persistance
-- Datebase Context, 
-- DBSets, 
+- Datebase Context
+- DBSets
 - EntityConfiguration (Fluent API)
 - EF Migrations
 - Eventual Seeds
