@@ -59,7 +59,7 @@ Onion Architecture sets a clear dependency rule between layers, making it a more
 
 1- Authentication with login and password : 
 - Select raw option and set content-Type to JSON(application/json)
-- insert json value (login/password/clientID)
+- Insert json value (login/password/clientID)
 
 ![login](https://github.com/bouraine/onion.architecture.dotnetcore2.0/blob/master/authentication.JPG)
 
